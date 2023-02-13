@@ -5,6 +5,18 @@ const getAll = async (req, res) => {
   return res.status(200).json(products);
 };
 
+const getById = async (req, res) => {
+  const { id } = req.params;
+
+  const productId = await productsService.getById(id);
+  
+  if (!productId) {
+    return res.status(404).json({ message: 'Product not found' });
+  }
+  return res.status(200).json(productId);
+};
+
 module.exports = {
-getAll,
+  getAll,
+  getById,
 };

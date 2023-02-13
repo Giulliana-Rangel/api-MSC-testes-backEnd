@@ -1,0 +1,78 @@
+[
+  {
+    "_id": "7d17524b-1006-43f8-9551-4e4e1191f6ad",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products",
+    "url": "http://localhost:3000/products",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-13T22:48:08.067Z",
+    "modified": "2023-02-13T22:48:08.067Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"id\": 1,\n    \"name\": \"Martelo de Thor\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Traje de encolhimento\"\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "3977e902-0116-48bd-bc0d-945e9899b354",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/1",
+    "url": "http://localhost:3000/products/1",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-13T22:52:09.631Z",
+    "modified": "2023-02-13T22:52:09.631Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"id\": 1,\n    \"name\": \"Martelo de Thor\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Traje de encolhimento\"\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "21e7e46d-a5f9-496a-8b32-8e20b40c61d1",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/10",
+    "url": "http://localhost:3000/products/10",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-13T22:54:01.306Z",
+    "modified": "2023-02-13T22:54:01.306Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"id\": 1,\n    \"name\": \"Martelo de Thor\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Traje de encolhimento\"\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "9542e0d9-272b-4909-bf73-944615c4b763",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/products/2",
+    "url": "http://localhost:3000/products/2",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-13T22:58:30.854Z",
+    "modified": "2023-02-13T22:58:30.854Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"id\": 1,\n    \"name\": \"Martelo de Thor\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Traje de encolhimento\"\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  }
+]

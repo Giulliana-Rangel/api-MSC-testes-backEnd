@@ -5,6 +5,8 @@ const app = express();
 
 app.get('/products', productsController.getAll);
 
+app.get('/products/:id', productsController.getById);
+
 // não remova esse endpoint, é para o avaliador funcionar
 app.get('/', (_request, response) => {
   response.send();
