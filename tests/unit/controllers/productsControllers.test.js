@@ -29,17 +29,36 @@ describe('Camada Controller', function () {
     })
     it('Retorno por id ', async function () {
 
-      const response = { status:200, product: [mock.products]}
+      const response = { id: 1, name: 'Martelo de Thor' }
+      
       sinon.stub(productsService, "getById").resolves(response);
-      // req.params = '1';
-      const { id = '1' } = req.params;
+     
+      const req = { params: { id: '1' } }
+      const res = {};
 
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
       await productsControllers.getById(req, res);
 
-      expect(res.status).to.have.been.calledOnceWith(response.status);
-      expect(res.json).to.have.been.calledWith(response.product);
+      expect(res.status).to.have.been.calledOnceWith(200);
+      expect(res.json).to.have.been.calledWith(response);
     
     })
+    it('Se cadastra novo produto com status 201', async function () {
+
+      const createdProduct = { id: 1, name: 'laço de héstia' };
+
+      const res = {};
+      const req = { body: { createdProduct } }
+      
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      await productsControllers.create(req, res);
+
+      expect(res.st)
+      
+    });
   })
   afterEach(function () {
     sinon.restore();
