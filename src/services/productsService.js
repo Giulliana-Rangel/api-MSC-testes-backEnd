@@ -7,7 +7,7 @@ const getAll = async () => {
 
 const getById = async (id) => {
   const productId = await productsModel.getById(id);
-  console.log(productId);
+  // console.log(productId);
   return productId;
 };
 
