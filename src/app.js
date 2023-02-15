@@ -1,5 +1,7 @@
 const express = require('express');
 const productsController = require('./controllers/productsController');
+
+const salesController = require('./controllers/salesController');
 // const productsRouter = require('./routes/products.routes');
 
 const app = express();
@@ -15,7 +17,7 @@ app.get('/products/:id', productsController.getById);
 app.post('/products', productsController.create);
 // ___________________________________________________________________
 
-app.post('/sales', productsController.getAll);
+app.post('/sales', salesController.create);
 
 // ___________________________________________________________________
 
