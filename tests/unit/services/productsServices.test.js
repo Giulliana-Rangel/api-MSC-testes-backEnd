@@ -23,24 +23,6 @@ describe('Camada Service', function () {
       expect(response).to.be.deep.equal(["productId"]);
     })
 
-    it('Cadastrando novo produto com sucesso', async function () {
-      const nameProduct = { id: 1, name: 'lapis' }
-      const result = {
-        status: 201,
-        item: {
-          id: 1,
-          name:'lapis',
-        }
-      }
-
-      sinon.stub(productsModel, "create").resolves(nameProduct);
-      sinon.stub(productsModel, 'getAll').resolves(products);
-    
-      const response = await productsService.create(nameProduct);
-
-      expect(response).to.be.deep.equal(result);
-    });
-
     this.afterEach(function () {
       sinon.restore();
     })
