@@ -28,6 +28,19 @@ describe('Products Model', function () {
       afterEach(async function () {
         sinon.restore();
       });
+    });
+    
+      describe('Testa a camada model para a função "create"', function () {
+        it('Criando um novo produto', async function () {
+          const nameProduct = { id: 1, name: 'lapis'}
+
+          sinon.stub(connection, 'execute').resolves([[nameProduct]]);
+
+          const response = await productsModel.create('lapis');
+          expect(response).to.be.deep.equal(undefined);
+      
+      });
+
       
     });
   });
