@@ -5,15 +5,15 @@
     "containerId": "",
     "name": "http://localhost:3000/products",
     "url": "http://localhost:3000/products",
-    "method": "POST",
+    "method": "GET",
     "sortNum": 0,
     "created": "2023-02-14T16:53:12.772Z",
-    "modified": "2023-02-15T13:58:09.376Z",
+    "modified": "2023-02-15T17:19:01.229Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "\n  {\n    \"name\": \" escudo capitão américa\"\n  }\n",
+      "raw": "\n  {\n    \"name\": \"escudo capitão\"\n  }\n",
       "form": []
     },
     "tests": []
@@ -33,6 +33,44 @@
     "body": {
       "type": "json",
       "raw": "{\n  \"name\": \"\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "bad23471-247d-47ea-b074-c575e5d12b8d",
+    "colId": "history",
+    "containerId": "",
+    "name": "https//localhost:3000/sales",
+    "url": "https//localhost:3000/sales",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-02-15T18:31:58.835Z",
+    "modified": "2023-02-15T18:32:05.343Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": " {\n    \"productId\": 1,\n    \"quantity\": 1\n  }",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "e6c762e4-f7fc-4064-95b3-7175740f6c88",
+    "colId": "history",
+    "containerId": "",
+    "name": "http//localhost:3000/sales",
+    "url": "http//localhost:3000/sales",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-02-15T18:32:42.030Z",
+    "modified": "2023-02-15T18:32:42.030Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": " {\n    \"productId\": 1,\n    \"quantity\": 1\n  }",
       "form": []
     },
     "tests": []
