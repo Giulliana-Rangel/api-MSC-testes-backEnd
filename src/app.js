@@ -2,8 +2,6 @@ const express = require('express');
 const productsController = require('./controllers/productsController');
 
 const salesController = require('./controllers/salesController');
-const validateProductId = require('./middlewares/validateProductId');
-// const productsRouter = require('./routes/products.routes');
 
 const app = express();
 
