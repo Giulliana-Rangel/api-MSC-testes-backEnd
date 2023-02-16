@@ -4,16 +4,16 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000/products",
-    "url": "http://localhost:3000/products",
-    "method": "GET",
+    "url": "http://localhost:3000/sales",
+    "method": "POST",
     "sortNum": 0,
     "created": "2023-02-14T16:53:12.772Z",
-    "modified": "2023-02-15T17:19:01.229Z",
+    "modified": "2023-02-16T19:41:50.184Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "\n  {\n    \"name\": \"escudo capitão\"\n  }\n",
+      "raw": "[\n  {\n    \n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
       "form": []
     },
     "tests": []
@@ -65,12 +65,69 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-02-15T18:32:42.030Z",
-    "modified": "2023-02-15T21:06:52.125Z",
+    "modified": "2023-02-16T13:07:21.722Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
+      "raw": "[\n  {\n    \"id\": 1,\n    \"name\": \"Martelo de Thor\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Traje de encolhimento\"\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "3115d8e5-bf97-49d7-a0ad-c28c7ef7747f",
+    "colId": "history",
+    "containerId": "",
+    "name": "http//localhost:3000/products",
+    "url": "http//localhost:3000/products",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-16T12:35:14.867Z",
+    "modified": "2023-02-16T12:45:28.529Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"id\": 1,\n    \"name\": \"Martelo de Thor\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Traje de encolhimento\"\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "15d6efde-0eba-465e-a415-6ed48d40cc99",
+    "colId": "history",
+    "containerId": "",
+    "name": "http//localhost:300/products",
+    "url": "http//localhost:300/products",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-02-16T13:10:02.449Z",
+    "modified": "2023-02-16T13:10:02.449Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"id\": 1,\n    \"name\": \"Martelo de Thor\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Traje de encolhimento\"\n  }\n]",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "2b5b1219-7927-430c-853b-c273801e7c7e",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/sales",
+    "url": "http://localhost:3000/sales",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-02-16T13:13:11.384Z",
+    "modified": "2023-02-16T21:19:33.836Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 9999,\n    \"quantity\": 5\n  }\n]",
       "form": []
     },
     "tests": []
