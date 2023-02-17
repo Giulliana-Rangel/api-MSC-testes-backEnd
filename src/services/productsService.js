@@ -34,8 +34,35 @@ const create = async ({ name }) => {
   return newProduct;
 };
 
+const updateById = async (id, name) => {
+  const { error } = productSchema.validate({ name });
+  if (error) {
+    const [{ type, message }] = error.details;
+    const status = type === 'string.min' ? 422 : 400;
+    throw Object({ status, message });
+  }
+  const hasProduct = await productsModel.getById(id);
+  // console.log('AQUI', hasProduct);
+  if (!hasProduct) return { status: 404, message: { message: 'Product not found' } };
+  
+  const updatedProduct = await productsModel.updateById(id, name);
+  console.log('AQUI', updatedProduct);
+  return { status: 200, message: { id, name } };
+};
+
+const remove = async (id) => {
+  const hasProduct = await productsModel.getById(id);
+  if (!hasProduct.length) return { status: 400, message: 'Product not found' };
+
+  await productsModel.remove(id);
+
+  return { status: 400 };
+};
+
 module.exports = {
   getAll,
   getById,
   create,
+  updateById,
+  remove,
 };

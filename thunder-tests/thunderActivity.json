@@ -118,16 +118,16 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000/sales",
-    "url": "http://localhost:3000/sales/44",
-    "method": "GET",
+    "url": "http://localhost:3000/products/105",
+    "method": "PUT",
     "sortNum": 0,
     "created": "2023-02-16T13:13:11.384Z",
-    "modified": "2023-02-17T14:59:56.705Z",
+    "modified": "2023-02-17T22:14:56.042Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 1,\n    \"quantity\": 5\n  }\n]",
+      "raw": "{\n  \"name\": \"Martelo do Arthur\"\n}",
       "form": []
     },
     "tests": []
