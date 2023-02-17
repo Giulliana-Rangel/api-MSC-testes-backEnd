@@ -2,7 +2,7 @@ const JOI = require('joi');
 const salesModel = require('../models/salesModel');
 const productsModel = require('../models/productsModel');
 const salesProductModel = require('../models/salesProductModel');
-const salesSchema = require('../middlewares/validateSales');
+const { salesSchema } = require('../middlewares/validateSales');
 
 const create = async (productArray) => {
   const salesArraySchema = JOI.array().items(salesSchema);
@@ -34,12 +34,6 @@ const getAll = async () => {
 };
 
 const getById = async (id) => {
-  // const salesSchemaId = JOI.array().items(salesSchema.salesIdSchema);
-  // const { error } = salesSchemaId.validate(id);
-  // if (error) {
-  //  const err = { status: 400, message: error.message };
-  // throw err;
-  // }
   const saleById = await salesProductModel.getById(id);
   return saleById;
 };
