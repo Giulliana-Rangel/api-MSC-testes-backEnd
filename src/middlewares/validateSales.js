@@ -12,4 +12,14 @@ const salesSchema = JOI.object({
   'number.empty': '{{#label} Product not found}',
 });
 
-module.exports = salesSchema;
+// const salesIdSchema = JOI.object({
+//   salesId: JOI.number().integer().min(1).required()
+// .label('salesId'),
+// }).messages({
+//   'any.required': '{{#label}} Product not found ',
+// });
+
+module.exports = {
+  salesSchema,
+ // salesIdSchema,
+};

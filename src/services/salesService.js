@@ -28,26 +28,26 @@ const create = async (productArray) => {
   return { id: idNewSale, itemsSold: productArray };
 };
 
-// const create2 = async (productArray) => {
-//   const salesArraySchema = JOI.array().items(salesSchema);
-//   const { error } = salesArraySchema.validate(productArray);
-//   if (error) {
-//     const err = { status: 400, message: error.message };
-//     throw err;
-//   }
+const getAll = async () => {
+  const salesList = await salesProductModel.getAll();
+  return salesList;
+};
 
-//   const newSalesPromisses = productArray.map((sale) => salesModel.create(sale));
-//   console.log(newSalesPromisses);
-//   const newSalesResolvePromise = await Promise.all(newSalesPromisses);
-
-//   const newSales = productArray
-//     .map((sale, index) => ({ id: newSalesResolvePromise[index], ...sale }));
-  
-//   return newSales.sort((a, b) => a.id - b.id);
-// };
+const getById = async (id) => {
+  // const salesSchemaId = JOI.array().items(salesSchema.salesIdSchema);
+  // const { error } = salesSchemaId.validate(id);
+  // if (error) {
+  //  const err = { status: 400, message: error.message };
+  // throw err;
+  // }
+  const saleById = await salesProductModel.getById(id);
+  return saleById;
+};
 
 module.exports = {
   create, 
+  getAll,
+  getById,
 };
 
 // promisse.all() recebe um array como parâmetro
