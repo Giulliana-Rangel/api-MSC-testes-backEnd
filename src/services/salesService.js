@@ -38,10 +38,20 @@ const getById = async (id) => {
   return saleById;
 };
 
+const remove = async (id) => {
+  const hasId = await salesProductModel.getById(id);
+  console.log('AQUIIIIII =>', hasId);
+  if (!hasId.length) return { status: 404, message: 'Sale not found' };
+
+  await salesProductModel.remove(id);
+  return { status: 204 };
+};
+
 module.exports = {
   create, 
   getAll,
   getById,
+  remove,
 };
 
 // promisse.all() recebe um array como parâmetro

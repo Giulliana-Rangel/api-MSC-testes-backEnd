@@ -28,8 +28,18 @@ const getById = async (req, res) => {
    return res.status(200).json(saleById); 
 };
 
+const remove = async (req, res) => {
+  const { id } = req.params;
+  const removed = await salesService.remove(id);
+  // console.log('AQUIIIIII =>', removed);
+  const { status, message } = removed;
+  if (status) return res.status(status).json({ message });
+
+  return res.status(removed.status).end();
+};
 module.exports = {
   create,
   getAll,
   getById,
+  remove,
 };
