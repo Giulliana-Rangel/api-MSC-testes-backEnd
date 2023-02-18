@@ -40,11 +40,17 @@ const updateById = async (req, res) => {
 };
 
 const remove = async (req, res) => {
+ // try {
   const { id } = req.params;
-  await productsService.remove(id);
-  res.status(204).end();
+  const removed = await productsService.remove(id);
+  const { status, message } = await removed;
+  if (status) return res.status(status).json({ message });
+  // console.log('AQUIIIIII =>', removed);
+    return res.status(removed.status).end();
+  //  } catch (error) {
+  //  return res.status(error.status).json({ message: error.message });
+  // }
 };
-
 module.exports = {
   getAll, 
   getById,
