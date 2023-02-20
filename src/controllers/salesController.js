@@ -37,9 +37,28 @@ const remove = async (req, res) => {
 
   return res.status(removed.status).end();
 };
+
+const update = async (req, res) => {
+  try {
+    const saleId = req.params;
+    const saleArray = req.body;
+
+    // console.log('AQUIIIII =>', saleId, saleArray);
+    const updated = await salesService.update(saleId, saleArray);
+    // console.log(updated);
+    if (updated.type) {
+      return res.status(updated.type).json(updated.message);
+    }
+    return res.status(201).json(updated);
+  } catch (error) {
+    return res.status(error.status).json({ message: error.message });
+  }
+};
+
 module.exports = {
   create,
   getAll,
   getById,
   remove,
+  update,
 };

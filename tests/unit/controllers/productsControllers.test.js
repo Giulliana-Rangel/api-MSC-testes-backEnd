@@ -50,15 +50,15 @@ describe('Camada Controller', function () {
   });
 
   describe('Cadastrando novo produto', async function () {
+    
+          const res = {};
+          const req = {};
+    
+          res.status = sinon.stub().returns(res);
+          res.json = sinon.stub().returns();
 
     it('Se cadastra novo produto com status 201 e se retorna json do produto cadastrado', async function () {
       const response = { id: 1, name: 'laço de héstia' }
-
-      const res = {};
-      const req = {};
-
-      res.status = sinon.stub().returns(res);
-      res.json = sinon.stub().returns();
 
       req.body = {name: 'laço de héstia'}
 
@@ -70,6 +70,39 @@ describe('Camada Controller', function () {
       expect(res.json).to.have.been.calledWith(response);
 
     });
+
+    it('Alterando o produto', async function () {
+      const req = { params: { id: 1 } };
+  
+      sinon.stub(productsService, 'updateById').resolves();
+
+       await productsControllers.updateById(req, res);
+
+      expect(res.status).to.have.been.calledWith(201);
+    })
+
+    it('Removendo o produto', async function () {
+      const req = { params: { id: 1 } };
+
+      sinon.stub(productsService, 'remove').resolves({ status: 204});
+
+      await productsControllers.remove(req, res);
+
+      expect(res.status).to.have.been.calledWith(204);
+    })
+
+    // it('Removendo o produto', async function () {
+    //   const req = { params: { id: 1000 } };
+    //   // const response = { status: 404, message: 'Product not found' }
+
+    //   sinon.stub(productsService, 'remove').resolves({ status: 404, message:'Product not found' });
+
+    //   await productsControllers.remove(req, res);
+
+    //   expect(res.status).to.have.been.calledOnceWith(404);
+    //   // expect(res.json).to.have.been.calledOnceWith(response);
+    // })
+    
     afterEach(function () {
       sinon.restore();
     });

@@ -33,6 +33,34 @@ describe('Camada Service', function () {
       expect(response).to.be.deep.equal(nameProduct);
 });
 
+    it('Removendo produto', async function () {
+      const nameProduct = { id: 1, name: 'lapis' }
+      const result = { status: 204 };
+      const id = 1;
+
+      sinon.stub(productsModel, 'getById').resolves([nameProduct]);
+      sinon.stub(productsModel, 'remove').resolves([undefined]);
+
+      const response = await productsService.remove(id);
+
+      expect(response).to.be.deep.equal(result);
+    })
+
+    it('Alterando o produto', async function () {
+      const id = 1;
+      const nameProduct = { id: 1, name: 'lapis' }
+      const result = { status: 200, message: {id:1, name: 'catavento'}}
+ 
+      sinon.stub(productsModel, 'getById').resolves([nameProduct]);
+      sinon.stub(productsModel, 'updateById').resolves([undefined]);
+
+      const response = await productsService.updateById(id, 'catavento');
+
+      expect(response).to.be.deep.equal(result);
+
+    })
+
+
     this.afterEach(function () {
       sinon.restore();
     })

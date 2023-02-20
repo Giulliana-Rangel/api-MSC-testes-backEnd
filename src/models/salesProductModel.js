@@ -20,6 +20,7 @@ const getAll = async () => {
 };
 
 const getById = async (id) => {
+  // console.log(id);
   const [sale] = await connection.execute(`SELECT s.date, sp.product_id, sp.quantity 
   FROM StoreManager.sales_products AS sp
   INNER JOIN StoreManager.sales AS s
@@ -29,15 +30,47 @@ const getById = async (id) => {
   return camelize(sale);
 };
 
+const update = async ({ quantity, saleId, productId }) => {
+  console.log('model', quantity);
+  const [result] = await connection.execute(
+    `UPDATE StoreManager.sales_products 
+    SET quantity = ? 
+    WHERE sale_id = ? AND product_id = ?`,
+    [quantity, saleId, productId],
+  );
+  return result;
+};
+
 const remove = async (id) => {
+  console.log('model', id);
   const query = 'DELETE FROM StoreManager.sales WHERE id = ?';
   const [removeSale] = await connection.execute(query, [id]);
+  // console.log('model', removeSale);
   return removeSale;
 };
+
+// const getByIdUpdate = async (saleId) => {
+//   const query = 'SELECT * FROM StoreManager.sales_products WHERE sale_id = ?';
+//   const [[justId]] = await connection.execute(query, [saleId]);
+//   return justId;
+// };
+
+// const update = async ( id, productId, quantity ) => {
+//   console.log('model', id);
+//   console.log('model', productId);
+//   console.log('model', quantity);
+//   const query = `UPDATE StoreManager.sales_products SET quantity = (?) 
+//   WHERE sale_id = ? AND product_id = ?`;
+//   const [result] = await connection.execute(query, [quantity, id, productId]);
+//   console.log('model', result);
+//   return result;
+// };
 
 module.exports = {
   createSalesProduct,
   getAll,
   getById,
   remove,
+  update,
+  // getByIdUpdate,
 };

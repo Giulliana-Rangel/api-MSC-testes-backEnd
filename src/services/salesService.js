@@ -47,11 +47,30 @@ const remove = async (id) => {
   return { status: 204 };
 };
 
+const update = async (id, saleArray) => {
+  // const salesArraySchema = JOI.array().items(salesSchema);
+  // const { error } = salesArraySchema.validate(saleArray);
+  // if (error) {
+  //   const [{ type, message }] = error.details;
+  //   const status = type === 'number.min' ? 422 : 400;
+  //   throw Object({ status, message });
+  // }
+  const hasId = await salesProductModel.getById({ id });
+  // console.log('AQUIIIIII =>', id, saleArray);
+  // console.log(hasId);
+  if (!hasId.length || hasId === undefined) return { status: 404, message: 'Sale not found' };
+
+  await salesProductModel.update(saleArray);
+
+  return { status: 200, id, itemsUpdated: [{ saleArray }] };
+};
+
 module.exports = {
   create, 
   getAll,
   getById,
   remove,
+  update,
 };
 
 // promisse.all() recebe um array como parâmetro

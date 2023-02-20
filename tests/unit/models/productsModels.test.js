@@ -39,9 +39,29 @@ describe('Products Model', function () {
           const response = await productsModel.create('lapis');
           expect(response).to.be.deep.equal(undefined);
       
-      });
+        });
+        it('Testa a camada model para a função "update"', function () {
+          it('Alterando um produto', async function () {
+            const product = { id: 2, name: 'pirulito' }
+            
+            sinon.stub(connection, 'execute').resolves();
 
-      
+            const response = await productsModel.updateById(id, product);
+            expect(response).to.be.equal(undefined);
+          })
+        })
+        
+        it('Testa a camada model para a função "remove"', async function () {
+          
+          const id = 1;
+          sinon.stub(connection, 'execute').resolves([undefined]);
+          const response = await productsModel.remove(id);
+          expect(response).to.be.deep.equal(undefined);
+        })
+
+        afterEach(async function () {
+          sinon.restore();
+        });
     });
   });
 });
