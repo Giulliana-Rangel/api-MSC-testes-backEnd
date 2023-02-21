@@ -53,9 +53,7 @@ describe('Camada Controller', function () {
       expect(res.status).to.have.been.calledWith(201);
 
     })
-    // it('Atualizando uma venda ', async function () {
-
-    // })
+   
     it('Removendo uma venda ', async function () {
       const req = { params: { id: '1' } }
       sinon.stub(salesService, 'remove').resolves({ status: 204 })

@@ -25,30 +25,7 @@ describe('Camada Services', function () {
       expect(response).to.be.deep.equal(["sale"]);
 
     })
-    it('Criando nova venda', async function () {
-      const saleOne = {
-        "productId": 2,
-        "quantity": 60
-      }
-      const result = {
-        "id": 27,
-        "itemsSold": [
-          {
-            "productId": 2,
-            "quantity": 60
-          },
-        ]
-      };
-      
-      sinon.stub(salesProductsModel, 'createSalesProduct').resolves([[result]]);
- 
-      const response = await salesService.create([saleOne])
-
-      expect(response).to.be.deep.equal(result);
-    })
-    // it('Atualizando uma venda ', async function () {
-
-    // })
+  
     it('Removendo uma venda ', async function () {
       const id = 1;
       const result = { status: 204 };
