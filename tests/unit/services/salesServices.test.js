@@ -31,7 +31,7 @@ describe('Camada Services', function () {
         "quantity": 60
       }
       const result = {
-        "id": 8,
+        "id": 27,
         "itemsSold": [
           {
             "productId": 2,
@@ -40,8 +40,8 @@ describe('Camada Services', function () {
         ]
       };
       
-      sinon.stub(salesProductsModel, 'createSalesProduct').resolves([['result']]);
-
+      sinon.stub(salesProductsModel, 'createSalesProduct').resolves([[result]]);
+ 
       const response = await salesService.create([saleOne])
 
       expect(response).to.be.deep.equal(result);
