@@ -5,6 +5,18 @@ const getAll = async (req, res) => {
   return res.status(200).json(products);
 };
 
+const getSearch = async (req, res) => {
+  const { q } = req.query;
+  console.log(q);
+  if (!q) {
+    return res.status(200).json(await productsService.getAll());
+  }
+  const search = await productsService.getSearch(q.toLowerCase());
+  console.log('controller', search);
+
+  return res.status(200).json([search]);
+};
+
 const getById = async (req, res) => {
   const { id } = req.params;
 
@@ -57,4 +69,5 @@ module.exports = {
   create,
   updateById,
   remove,
+  getSearch,
 };

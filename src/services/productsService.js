@@ -19,6 +19,11 @@ const getById = async (id) => {
   return productId;
 };
 
+const getSearch = async (prod) => {
+  const search = await productsModel.getSearch(prod);
+  return search;
+};
+
 const create = async ({ name }) => {
   const { error } = productSchema.validate({ name });
 
@@ -66,4 +71,5 @@ module.exports = {
   create,
   updateById,
   remove,
+  getSearch,
 };
