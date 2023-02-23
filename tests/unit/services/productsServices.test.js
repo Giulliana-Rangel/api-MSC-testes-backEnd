@@ -59,6 +59,15 @@ describe('Camada Service', function () {
       expect(response).to.be.deep.equal(result);
 
     })
+    it('testando a função search', async function () {
+      const q = 'martelo';
+      const result = { status: 200, message: { id: 1, name: 'martelo do thor' }
+      }
+      sinon.stub(productsModel, 'getSearch').resolves(result);
+      const response = await productsService.getSearch(q);
+
+      expect(response).to.be.deep.equal(result);
+    })
 
 
     this.afterEach(function () {
